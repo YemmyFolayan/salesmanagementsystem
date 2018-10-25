@@ -1,0 +1,132 @@
+body{
+    font-family: 'Lato', sans-serif !important;
+}
+
+/* Custom Background Color */
+.bg-gradient{
+    background: #1A2980; /* fallback for old browsers */
+    background: -webkit-linear-gradient(to left, #26D0CE, #1A2980); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to left, #26D0CE, #1A2980); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+/* Background Transparent */
+input.bg-transparent{
+    color: white !important;
+    box-sizing: border-box;
+    background-color: transparent !important;
+    border: 2px solid white;
+}
+
+/* Product Search Bar Style */
+#tableSearchBar{
+    color: #343a40 !important;
+    box-sizing: border-box;
+    background-color: transparent !important;
+    border-width: 2px;
+}
+#tableSearchBar::placeholder{
+    color: #999  !important;
+}
+#tableSearchBar:focus, #tableSearchBar:active{
+    outline: none !important;
+    box-shadow: none !important;   
+    border-color: #ced4da !important;
+}
+
+/* Form Input Styling */
+input::placeholder{
+    color: white !important;
+}
+.form-control{
+    border-radius: 0rem !important;
+}
+input.form-control:focus, input.form-control:active{
+    outline: none !important;
+    box-shadow: none !important;   
+    border-color: white !important;
+}
+#addNewProduct, #editProduct{
+    display: none;
+}
+button[type="submit"]:focus, button[type="submit"]:active{
+    outline: none !important;
+    box-shadow: none !important;   
+}
+#addProductNameError, #addProductRatingError, #addProductPriceError, #addProductBrandError, #addProductOrdersError,
+#editProductNameError, #editProductRatingError, #editProductPriceError, #editProductBrandError, #editProductOrdersError{
+    display: none;
+}
+
+/* Product Table Styling */
+.product-detail ul{
+    list-style: none;
+}
+.product-detail{
+    display: none;
+}
+.dropDownIcon, .soldIcon, .editIcon, .deleteIcon, .addProductIcon, .backIcon, .navbar-brand, .sidebarIcon{
+    cursor: pointer;
+}
+
+/* Sold Item Section */
+#soldItemSection{
+    display: none;
+}
+
+/* Sold Item Search Bar Style */
+#searchSoldItems{
+    color: #343a40 !important;
+    box-sizing: border-box;
+    background-color: transparent !important;
+    border-width: 2px;
+}
+#searchSoldItems::placeholder{
+    color: #999  !important;
+}
+#searchSoldItems:focus, #searchSoldItems:active{
+    outline: none !important;
+    box-shadow: none !important;   
+    border-color: #ced4da !important;
+}
+
+/* Side bar Style */
+#dashboardSidebar{
+    height: 100vh;
+    width: 210px;
+    position: fixed;
+    top: 0;
+    left: -210px;
+    transition: 0.3s;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.2);
+}
+#dashboardSidebar.active{
+    left: 0;
+    transition: 0.3s;
+}
+
+.sidebarIcon{
+    font-size: 1.2rem;
+    padding-left: 150px !important
+}
+
+.border-bottom{
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+#sidebarMenuList ul{
+    padding: 0;
+    list-style: none;
+    font-size: 1.1rem;
+}
+#sidebarMenuList ul li{
+    padding: 10px 8px;
+    margin: 5px 0px;
+}
+#sidebarMenuList ul li:hover{
+    background-color: rgba(255, 255, 255, 0.2) !important;
+    /* box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; */
+}
+#sidebarMenuList ul li.active{
+    color: rgba(26, 41, 128, 0.9) !important;
+    background-color: white !important;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}

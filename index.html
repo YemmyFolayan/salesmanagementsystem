@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Sales Management System</title>
+    <!-- Bootstrap Online CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- Fontawesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">    
+</head>
+<body class="bg-gradient py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mx-auto text-center my-5">
+                <div class="row">
+                    <div class="col-lg-12 col-md-12 mb-3 text-uppercase text-white">
+                        <div class="row">
+                            <div class="col-6 col-lg-6 col-md-6" onclick="showAdminForm()">
+                                <div id="adminTab">
+                                    <strong><i class="fas fa-user-cog pr-2" id="adminTabIcon"></i>Admin</strong>
+                                </div>
+                            </div>
+                            <div class="col-6 col-lg-6 col-md-6" onclick="showEmployeeSignInForm()">
+                                <div id="employeeTab">
+                                    <strong><i class="fas fa-user-tie pr-2" id="employeeTabIcon"></i>Employee</strong>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12 col-md-12" id="adminForm">
+                        <div class="form-group">
+                            <input type="email" class="bg-transparent form-control" name="adminEmail" id="adminEmail" placeholder="Email">
+                            <span class="text-warning p-0 m-0" id="adminEmailError">* Enter a valid email address</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="bg-transparent form-control" name="adminPassword" id="adminPassword" placeholder="Password">
+                            <span class="text-warning p-0 m-0" id="adminPasswordError">* Enter a valid password</span>
+                        </div>
+                        <button type="submit" class="btn bg-transparent text-uppercase text-white" onclick="adminSignIn()"><strong>Sign In</strong></button>
+                    </div>
+                    <div class="col-lg-12 col-md-12" id="employeeSignInForm">
+                        <div class="form-group">
+                            <input type="email" class="bg-transparent form-control" name="userSiEmail" id="userSiEmail" placeholder="Email">
+                            <span class="text-warning p-0 m-0" id="userSiEmailError">* Enter a valid email address</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" class="bg-transparent form-control" name="userSiPassword" id="userSiPassword" placeholder="Password">
+                            <span class="text-warning p-0 m-0" id="userSiPasswordError">* Enter a valid password</span>
+                        </div>
+                        <button type="submit" class="btn bg-transparent text-uppercase text-white" onclick="employeeSignIn()"><strong>Sign In</strong></button>
+                        <p class="text-white">
+                            Don't have an account yet? <span class="text-warning text-uppercase" onclick="showEmployeeSignUpForm()" style="cursor:pointer;">Sign Up</span>
+                        </p>
+                    </div>
+                    <div class="col-lg-12 col-md-12" id="employeeSignUpForm">
+                        <div class="form-row">
+                            <div class="form-group col-lg-6 col-md-6">
+                                <input type="text" onblur="checkFirstName()" class="bg-transparent form-control" name="firstName" id="firstName" placeholder="First Name">
+                                <span class="text-warning p-0 m-0" id="firstNameError">* First name is required</span>
+                            </div>
+                            <div class="form-group col-lg-6 col-md-6">
+                                <input type="text" onblur="checkLastName()" class="bg-transparent form-control" name="lastName" id="lastName" placeholder="Last Name">
+                                <span class="text-warning p-0 m-0" id="lastNameError">* Last name is required</span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" onblur="checkUserName()" class="bg-transparent form-control" name="userName" id="userName" placeholder="User Name">
+                            <span class="text-warning p-0 m-0" id="userNameError">* Must be greater than 8 character &amp; alphanumeric</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" onblur="checkUserEmail()" class="bg-transparent form-control" name="userEmail" id="userEmail" placeholder="Email">
+                            <span class="text-warning p-0 m-0" id="userEmailError">* Please enter a valid email address</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" onblur="checkUserPassword()" class="bg-transparent form-control" name="userPassword" id="userPassword" placeholder="Password">
+                            <span class="text-warning p-0 m-0" id="userPasswordError">* Use alphanumeric, uppercase, lowercase &amp; greater than 10 character</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="password" onblur="checkUserConfirmPass()" class="bg-transparent form-control" name="userConfirmPass" id="userConfirmPass" placeholder="Confirm Password">
+                            <span class="text-warning p-0 m-0" id="userConfirmPassError">* Confirm password does not match</span>
+                        </div>
+                        <div class="custom-control custom-checkbox">
+                            <input type="checkbox" class="custom-control-input" onblur="checkcheckTnC()" id="checkTnC">
+                            <label class="custom-control-label " for="checkTnC">Please see our terms &amp; conditions</label>
+                            <span class="text-warning p-0 m-0" id="checkTnCError">* It should be checked</span>
+                        </div>
+                        <button type="submit" class="btn bg-transparent text-uppercase text-white" onclick="employeeSignUp()"><strong>Sign Up</strong></button>
+                        <p class="text-white">
+                            Do you have an account? <span class="text-warning text-uppercase" onclick="showEmployeeSignInForm()" style="cursor:pointer;">Sign In</span>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JavaScript -->
+    <script src="./js/main-app.js"></script>
+    
+    <!-- SweetAlert JavaScript -->
+    <script src="./js/sweetalert2.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap Online JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+        crossorigin="anonymous"></script>
+
+    <!-- Firebase -->
+    <script src="https://www.gstatic.com/firebasejs/5.5.5/firebase.js"></script>
+    <script>
+    // Initialize Firebase
+    var config = {
+        apiKey: "AIzaSyAmInTs4BWpG9pcJwsULSZ52pG1ncmIQrk",
+        authDomain: "salesmanagementsystem-js.firebaseapp.com",
+        databaseURL: "https://salesmanagementsystem-js.firebaseio.com",
+        projectId: "salesmanagementsystem-js",
+        storageBucket: "salesmanagementsystem-js.appspot.com",
+        messagingSenderId: "626872971354"
+    };
+    firebase.initializeApp(config);
+    </script>
+</body>
+
+</html>
